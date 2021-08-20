@@ -1,15 +1,11 @@
 <template>
   <div class="home">
     <h1>概要</h1>
-    <p>
-      こちらは社内統一コーディング(マークアップ)ルールのページです。<br />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque labore
-      culpa laboriosam velit facere, sed possimus nulla tempora, nihil similique
-      repellendus architecto, ex doloremque optio deleniti! Ipsam perferendis
-      tenetur ut.
-    </p>
+    <p>こちらは社内統一コーディング(マークアップ)ルールのページです。</p>
     <h1>更新履歴</h1>
     <dl class="timetable">
+      <dt>2021.08.20</dt>
+      <dd>ナビゲーション整備、内容選定</dd>
       <dt>2021.08.06</dt>
       <dd>雛形作成</dd>
     </dl>
