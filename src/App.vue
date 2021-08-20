@@ -22,6 +22,59 @@
                 <li><a href="">Examples</a></li>
               </ol>
             </li>
+            <li>
+              <a href="">Grid</a>
+              <ol>
+                <li><a href="">Rules</a></li>
+                <li><a href="">Examples</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="">Flex or Grid</a>
+            </li>
+            <li>
+              <a href="">Float</a>
+              <ol>
+                <li><a href="">Rules</a></li>
+                <li><a href="">Examples</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <a href="">Contents</a>
+          <ol>
+            <li>
+              <a href="">Headings</a>
+              <ol>
+                <li><a href="">Rules</a></li>
+                <li><a href="">Examples</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="">Texts</a>
+              <ol>
+                <li><a href="">Rules</a></li>
+                <li><a href="">Examples</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="">Lists</a>
+              <ol>
+                <li><a href="">Rules</a></li>
+                <li><a href="">ul</a></li>
+                <li><a href="">ol</a></li>
+                <li><a href="">dl</a></li>
+                <li><a href="">Examples</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="">Media</a>
+              <ol>
+                <li><a href="">Rules</a></li>
+                <li><a href="">Examples</a></li>
+              </ol>
+            </li>
           </ol>
         </li>
       </ol>
@@ -120,7 +173,7 @@ nav {
           &::before {
             left: -1.9rem;
             counter-increment: level2;
-            content: counter(level1) '-' counter(level2);
+            content: counter(level1) '.' counter(level2);
           }
           > ol {
             counter-reset: level3;
