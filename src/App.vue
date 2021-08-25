@@ -12,6 +12,8 @@
       <p>(以下仮設)</p>
       <ol>
         <li><a href="">はじめに</a></li>
+        <li><router-link to="/proposal">提案事項</router-link></li>
+        <li><router-link to="/naming">命名則</router-link></li>
         <li>
           <a href="">Layout</a>
           <ol>
@@ -137,9 +139,13 @@ header {
 }
 
 nav {
+  align-self: start;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid lighten($gray, 40);
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
 
   a {
     font-weight: 500;
@@ -199,6 +205,7 @@ nav {
 
 main {
   padding-left: 1rem;
+  border-left: 1px solid lighten($gray, 40);
   h1,
   h2,
   h3,
@@ -213,11 +220,51 @@ main {
     border-bottom: 1px solid lighten($gray, 40);
     margin-bottom: 1rem;
   }
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-bottom: 1px solid lighten($gray, 40);
+    margin-bottom: 0.7rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 0.7rem;
+  }
   p {
     margin-bottom: 1rem;
   }
+  strong {
+    color: rgb(197, 25, 25);
+  }
+  section {
+    margin-bottom: 1.5rem;
+  }
 }
-
+pre.source {
+  display: block;
+  padding: 1.5rem 1rem;
+  margin-bottom: 1.3rem;
+  background: #364549;
+  color: #fff;
+  overflow-x: auto;
+  .tag {
+    color: #f07c8f;
+  }
+  .key {
+    color: #86d64c;
+  }
+  .val {
+    color: #41b7d7;
+  }
+  .dec {
+    color: #ebd247;
+  }
+  .com {
+    color: #9dabae;
+  }
+}
 .timetable {
   display: grid;
   grid-template-columns: repeat(2, max-content);
