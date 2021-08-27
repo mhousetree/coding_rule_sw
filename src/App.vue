@@ -92,7 +92,8 @@
 $text-color: #2c3e50;
 $bg-color: #fff;
 $red: #ff4000;
-$blue: #50b2c0;
+$blue: #8075ff;
+$yellow: #fbff12;
 $gray: #73877b;
 
 :root {
@@ -102,7 +103,7 @@ $gray: #73877b;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: $text-color;
 }
 
 body {
@@ -139,6 +140,7 @@ header {
 }
 
 nav {
+  padding-right: 1rem;
   align-self: start;
   display: flex;
   flex-direction: column;
@@ -148,11 +150,15 @@ nav {
   overflow-y: auto;
 
   a {
-    font-weight: 500;
-    color: #2c3e50;
-  }
-  a.router-link-exact-active {
-    color: #42b983;
+    color: $text-color;
+    text-decoration: none;
+    display: block;
+    &.router-link-exact-active {
+      color: $blue;
+    }
+    &:not(.router-link-exact-active):hover {
+      background-color: $yellow;
+    }
   }
   ol {
     list-style: none;
@@ -167,6 +173,7 @@ nav {
     counter-reset: level1;
     padding-left: 1rem;
     > li {
+      font-weight: 500;
       &::before {
         left: -1rem;
         counter-increment: level1;
@@ -176,6 +183,7 @@ nav {
         counter-reset: level2;
         padding-left: 1.9rem;
         > li {
+          font-weight: 400;
           &::before {
             left: -1.9rem;
             counter-increment: level2;
@@ -236,10 +244,14 @@ main {
     margin-bottom: 1rem;
   }
   strong {
-    color: rgb(197, 25, 25);
+    color: $red;
+    font-weight: 500;
   }
   section {
     margin-bottom: 1.5rem;
+  }
+  a {
+    color: $blue;
   }
 }
 
