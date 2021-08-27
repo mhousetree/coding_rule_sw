@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>命名則</h1>
-    <p>クラス名や変数名を宣言する際の名前付の規則。</p>
+    <p>クラス名や変数名を宣言する際の命名の規則。</p>
     <h2>HTML &amp; CSS</h2>
     <section>
       <h3>クラス、ID</h3>
@@ -11,7 +11,7 @@
       <ol>
         <li>ケバブケースで記述</li>
         <li>
-          同一カテゴリのクラスについて、始めの単語を一致せることによって判別できるようにする。<br />
+          同一カテゴリのクラスについて、始めの単語を一致させることによって判別できるようにする。<br />
           ex) テキスト装飾関連のクラス： text-red や text-bold とする
         </li>
         <li>目安として3単語以内</li>
@@ -22,9 +22,7 @@
       <pre v-highlightjs><code class="scss">
 --theNamingRule: ;
       </code></pre>
-      <ol>
-        <li>-- で始めることが必須。キャメルケースで記述</li>
-      </ol>
+      <p>-- で始めることが必須。キャメルケースで記述</p>
     </section>
     <h2>Javascript</h2>
     <section>
