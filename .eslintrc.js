@@ -3,16 +3,16 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
+  extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
   parserOptions: {
-    parser: "babel-eslint",
+    parser: 'babel-eslint',
   },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
-    "comma-dangle": ["error", "only-multiline"],
-    "linebreak-style": ["error", "windows"],
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    'comma-dangle': ['error', 'only-multiline'],
+    'linebreak-style': ['error', 'unix'],
   },
-};
+}
