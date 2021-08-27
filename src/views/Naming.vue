@@ -5,7 +5,9 @@
     <h2>HTML &amp; CSS</h2>
     <section>
       <h3>クラス、ID</h3>
-      <pre class="source"><span class="key">.the-naming-rule</span></pre>
+      <pre v-highlightjs><code class="scss">
+.the-naming-rule
+      </code></pre>
       <ol>
         <li>ケバブケースで記述</li>
         <li>
@@ -17,7 +19,9 @@
     </section>
     <section>
       <h3>CSS Variables</h3>
-      <pre class="source"><span class="key">--theNamingRule</span>: ;</pre>
+      <pre v-highlightjs><code class="scss">
+--theNamingRule: ;
+      </code></pre>
       <ol>
         <li>-- で始めることが必須。キャメルケースで記述</li>
       </ol>
@@ -28,20 +32,22 @@
         <strong>var による宣言は名前空間を破壊するため行わない。</strong>必ず
         let か const を用いること
       </p>
-      <pre
-        class="source"
-      ><span class="dec">let</span> <span class="key">theNamingRule</span> = hoge;</pre>
+      <h3>変数</h3>
+      <pre v-highlightjs><code class="javascript">
+let theNamingRule = hoge;
+      </code></pre>
       <p>変数はキャメルケースで記述</p>
-      <pre
-        class="source"
-      ><span class="dec">const</span> <span class="key">THE_NAMING_RULE</span> = hoge;</pre>
+      <h3>定数</h3>
+      <pre v-highlightjs><code class="javascript">
+const THE_NAMING_RULE = hoge;
+      </code></pre>
       <p>定数はアッパースネークケースで記述</p>
     </section>
     <h2>PHP</h2>
     <section>
-      <pre
-        class="source"
-      ><span class="key">$the_naming_rule</span> = hoge;</pre>
+      <pre v-highlightjs><code class="php">
+$the_naming_rule = hoge;
+      </code></pre>
       <p>スネークケースで記述</p>
     </section>
   </div>

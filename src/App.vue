@@ -227,8 +227,8 @@ main {
     margin-bottom: 0.7rem;
   }
   h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 500;
     line-height: 1.5;
     margin-bottom: 0.7rem;
   }
@@ -242,29 +242,20 @@ main {
     margin-bottom: 1.5rem;
   }
 }
-pre.source {
-  display: block;
-  padding: 1.5rem 1rem;
-  margin-bottom: 1.3rem;
-  background: #364549;
-  color: #fff;
-  overflow-x: auto;
-  .tag {
-    color: #f07c8f;
-  }
-  .key {
-    color: #86d64c;
-  }
-  .val {
-    color: #41b7d7;
-  }
-  .dec {
-    color: #ebd247;
-  }
-  .com {
-    color: #9dabae;
+
+pre {
+  margin-bottom: 1rem;
+}
+
+code {
+  font-family: 'Ubuntu Mono', 'Noto Sans JP', monospace;
+  font-size: 17px;
+
+  &.hljs {
+    padding: 0.5em 1em;
   }
 }
+
 .timetable {
   display: grid;
   grid-template-columns: repeat(2, max-content);
