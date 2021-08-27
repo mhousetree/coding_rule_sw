@@ -11,7 +11,11 @@
       <router-link to="/about">About</router-link>
       <p>(以下仮設)</p>
       <ol>
-        <li><a href="">はじめに</a></li>
+        <li>
+          <router-link :to="{ name: 'About', hash: '#hoge' }"
+            >はじめに</router-link
+          >
+        </li>
         <li><router-link to="/proposal">提案事項</router-link></li>
         <li><router-link to="/naming">命名則</router-link></li>
         <li>
