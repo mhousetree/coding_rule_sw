@@ -34,6 +34,16 @@ const routes = [
     name: 'Layout',
     component: () => import('../pages/Layout.vue'),
   },
+  {
+    path: '/flex',
+    name: 'Flex',
+    component: () => import('../pages/Flex.vue'),
+  },
+  {
+    path: '/grid',
+    name: 'Grid',
+    component: () => import('../pages/Grid.vue'),
+  },
 ]
 
 const router = new VueRouter({

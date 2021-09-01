@@ -68,8 +68,16 @@
 </template>
 
 <script>
-// export default {
-//   name: 'About',
-// }
-//
+export default {
+  data() {
+    return {
+      title: 'About',
+    }
+  },
+  mounted() {
+    ;() => {
+      this.$emit('title', this.title)
+    }
+  },
+}
 </script>

@@ -10,7 +10,7 @@
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <p>(以下仮設)</p>
-      <ol>
+      <ol id="side-nav">
         <li>
           <router-link :to="{ name: 'About', hash: '#hoge' }"
             >はじめに</router-link
@@ -22,17 +22,33 @@
           <router-link to="/layout">Layout</router-link>
           <ol>
             <li>
-              <a href="">Flex</a>
+              <router-link to="/flex">Flex</router-link>
               <ol>
-                <li><a href="">Rules</a></li>
-                <li><a href="">Examples</a></li>
+                <li>
+                  <router-link :to="{ name: 'Flex', hash: '#rules' }"
+                    >Rules</router-link
+                  >
+                </li>
+                <li>
+                  <router-link :to="{ name: 'Flex', hash: '#examples' }"
+                    >Examples</router-link
+                  >
+                </li>
               </ol>
             </li>
             <li>
-              <a href="">Grid</a>
+              <router-link to="/grid">Grid</router-link>
               <ol>
-                <li><a href="">Rules</a></li>
-                <li><a href="">Examples</a></li>
+                <li>
+                  <router-link :to="{ name: 'Grid', hash: '#rules' }"
+                    >Rules</router-link
+                  >
+                </li>
+                <li>
+                  <router-link :to="{ name: 'Grid', hash: '#examples' }"
+                    >Examples</router-link
+                  >
+                </li>
               </ol>
             </li>
             <li>
@@ -83,6 +99,19 @@
             </li>
           </ol>
         </li>
+        <li>
+          <a href="">Other Techniques</a>
+          <ol>
+            <li><a href="">Pseudo-elements</a></li>
+            <li>
+              <a href="">Introduction of HTML5(HTML Living Standard)</a>
+              <ol>
+                <li><a href="">Introduction</a></li>
+                <li><a href="">Details, Summary</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
       </ol>
     </nav>
 
@@ -111,7 +140,9 @@ $gray: #73877b;
 }
 
 body {
-  margin: 1rem;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 
 * {
@@ -120,6 +151,7 @@ body {
 
 #app {
   /* Layouts */
+  height: 100%;
   display: grid;
   grid-template-columns: 13rem 1fr;
   grid-template-rows: max-content 1fr;
@@ -129,9 +161,9 @@ header {
   grid-column: 1 / -1;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 300;
-    padding: 1rem 0 2rem;
+    padding-bottom: 1rem;
 
     a {
       line-height: 2;
@@ -146,6 +178,7 @@ header {
 nav {
   padding-right: 1rem;
   align-self: start;
+  height: 100%;
   display: flex;
   flex-direction: column;
   max-height: 100vh;
@@ -159,9 +192,43 @@ nav {
     display: block;
     &.router-link-exact-active {
       color: $blue;
+      + ol,
+      + ol ol {
+        display: block;
+      }
     }
     &:not(.router-link-exact-active):hover {
       background-color: $yellow;
+    }
+  }
+  #side-nav > li > a:not(.router-link-exact-active) {
+    + ol {
+      display: none;
+      height: 0;
+      &.nav-show {
+        display: block;
+        opacity: 1;
+        height: max-content;
+        animation-duration: 0.2s;
+        animation-name: fade-in;
+      }
+      @keyframes fade-in {
+        0% {
+          display: none;
+          opacity: 0;
+          height: 0;
+        }
+        1% {
+          display: block;
+          opacity: 0;
+          height: 0;
+        }
+        100% {
+          display: block;
+          opacity: 1;
+          height: max-content;
+        }
+      }
     }
   }
   ol {
@@ -185,22 +252,25 @@ nav {
       }
       > ol {
         counter-reset: level2;
-        padding-left: 1.9rem;
+        padding-left: 0.9rem;
         > li {
-          font-weight: 400;
+          font-weight: 500;
           &::before {
             left: -1.9rem;
             counter-increment: level2;
             content: counter(level1) '.' counter(level2);
+            font-weight: 400;
           }
           > ol {
             counter-reset: level3;
-            padding-left: 2.7rem;
+            padding-left: 0.8rem;
+            font-weight: 400;
             > li {
               &::before {
                 left: -2.7rem;
                 counter-increment: level3;
                 content: counter(level1) '.' counter(level2) '.' counter(level3);
+                font-weight: 300;
               }
             }
           }
@@ -280,3 +350,65 @@ code {
   }
 }
 </style>
+
+<script>
+export default {
+  beforeUpdate: () => {
+    const classElement = document.querySelectorAll('.router-link-exact-active')
+    classElement.forEach((element) => {
+      element.classList.remove('router-link-exact-active')
+    })
+  },
+  updated: () => {
+    let promise = new Promise((resolve) => {
+      const activeSection = document.querySelector('.router-link-exact-active')
+      if (
+        activeSection.parentNode.parentNode.parentNode.parentNode.id ===
+        'side-nav'
+      ) {
+        activeSection.parentNode.parentNode.classList.add('nav-show')
+        activeSection.parentNode.parentNode.previousElementSibling.classList.add(
+          'router-link-exact-active',
+        )
+      } else if (
+        activeSection.parentNode.parentNode.parentNode.parentNode.parentNode
+          .parentNode.id === 'side-nav'
+      ) {
+        activeSection.parentNode.parentNode.parentNode.parentNode.classList.add(
+          'nav-show',
+        )
+        activeSection.parentNode.parentNode.previousElementSibling.classList.add(
+          'router-link-exact-active',
+        )
+        activeSection.parentNode.parentNode.parentNode.parentNode.previousElementSibling.classList.add(
+          'router-link-exact-active',
+        )
+      }
+      resolve()
+    })
+
+    promise.then(() => {
+      const hoverShowNavTarget = document.querySelectorAll(
+        '#side-nav>li>a:not(.router-link-exact-active)',
+      )
+
+      hoverShowNavTarget.forEach((element) => {
+        const parentLiElement = element.parentNode
+        const childElements = parentLiElement.children
+        for (let i = 0; i < childElements.length; i++) {
+          if (childElements.item(i).nodeName === 'OL') {
+            parentLiElement.addEventListener('mouseover', () => {
+              childElements.item(i).classList.add('nav-show')
+            })
+            parentLiElement.addEventListener('mouseout', () => {
+              childElements.item(i).classList.remove('nav-show')
+            })
+          }
+        }
+      })
+    })
+
+    // console.log(activeSection.parentNode.parentNode.parentNode.parentNode.id)
+  },
+}
+</script>
