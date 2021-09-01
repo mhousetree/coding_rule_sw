@@ -19,7 +19,7 @@
         <li><router-link to="/proposal">提案事項</router-link></li>
         <li><router-link to="/naming">命名則</router-link></li>
         <li>
-          <a href="">Layout</a>
+          <router-link to="/layout">Layout</router-link>
           <ol>
             <li>
               <a href="">Flex</a>

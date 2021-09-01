@@ -29,6 +29,11 @@ const routes = [
     name: 'Naming',
     component: () => import('../views/Naming.vue'),
   },
+  {
+    path: '/layout',
+    name: 'Layout',
+    component: () => import('../views/Layout.vue'),
+  },
 ]
 
 const router = new VueRouter({

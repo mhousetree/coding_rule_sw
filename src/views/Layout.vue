@@ -68,8 +68,7 @@
 </template>
 
 <script>
-// export default {
-//   name: 'About',
-// }
-//
+export default {
+  name: 'About',
+}
 </script>
