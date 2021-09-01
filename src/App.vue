@@ -140,7 +140,6 @@ $gray: #73877b;
 }
 
 body {
-  height: 100vh;
   box-sizing: border-box;
   padding: 1rem;
 }
@@ -176,15 +175,15 @@ header {
 }
 
 nav {
+  padding-top: 1rem;
   padding-right: 1rem;
   align-self: start;
-  height: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   max-height: 100vh;
   position: sticky;
   top: 0;
-  overflow-y: auto;
 
   a {
     color: $text-color;
