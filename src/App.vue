@@ -335,9 +335,15 @@ pre {
 code {
   font-family: 'Ubuntu Mono', 'Noto Sans JP', monospace;
   font-size: 17px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin: 0 0.5rem;
+  background-color: mix($bg-color, mix($bg-color, mix($text-color, $bg-color)));
+  font-weight: 700;
 
   &.hljs {
     padding: 0.5em 1em;
+    font-weight: 400;
   }
 }
 
